@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option go_package = "protoCompiles";
+
+message blog_article {
+	int32 id = 1;
+	string cover = 2;
+	int64 good_num = 3;
+	int64 view = 4;
+	int64 recommended = 5;
+	int64 type = 6;
+	string preface = 7;
+	string html_txt_url = 8;
+	string	name = 9;
+	string	create_time = 10;
+	string	update_time = 11;
+}
+
+message blog_room {
+    string id = 1;
+    string name = 2;
+    string cover = 3;
+    string create_time = 4;
+    string update_time = 5;
+    int32  olnum = 6;
+}
+
+
+
+
+
+
+//protoc -I . --go_out=plugins=grpc:. ./tv_service.proto

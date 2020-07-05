@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+option go_package = "protoCompiles";
+
+import "blogArticle.proto";
+import "errors.proto";
+import "blogType.proto";
+import "blogComment.proto";
+import "blogChatRecord.proto";
+
+
+message blog_list {
+	error_codes code = 1;
+	string msg = 2;
+	repeated blog_article blog_article_list = 3;
+}
+
+message blog_detail {
+	error_codes code = 1;
+	string msg = 2;
+	blog_article current_article = 3;
+	blog_article next_article = 4;
+	blog_article prev_article = 5;
+}
+
+message blog_types {
+	error_codes code = 1;
+	string msg = 2;
+	repeated blog_type blog_type_list = 3;
+}
+
+message blog_comments {
+	error_codes code = 1;
+	string msg = 2;
+	repeated blog_comment blog_comment_list = 3;
+	int32 total = 4;
+}
+
+message file_content {
+	error_codes code = 1;
+	string msg = 2;
+	string txt = 3;
+}
+
+message blog_chat_records {
+	error_codes code = 1;
+	string msg = 2;
+	repeated blog_chat_record blog_chat_record_list = 3;
+}
+
+message blog_rooms {
+    error_codes code = 1;
+    string msg = 2;
+    repeated blog_room blog_room_list = 3;
+}
+
+

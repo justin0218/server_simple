@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "protoCompiles";
+
+message blog_view {
+	int32 id = 1;
+	string country = 2;
+	string region = 3;
+	string city = 4;
+	string isp = 5;
+	int32 blog_id = 6;
+	string ip = 7;
+	string	create_time = 8;
+	string	update_time = 9;
+}
+
+
+
+//protoc -I . --go_out=plugins=grpc:. ./tv_service.proto

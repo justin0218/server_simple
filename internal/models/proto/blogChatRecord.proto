@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "protoCompiles";
+
+message blog_chat_record {
+	int32   id = 1;
+	string room = 2;
+	string content = 3;
+	string create_time = 4;
+	string update_time = 5;
+}
+

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "protoCompiles";
+
+enum error_codes {
+	F				= 0;
+	OK 				= 200;
+	NOCONTENT 		= 204;
+	INVALID_PARAMS 	= 400;
+	UNAUTHORIZED 	= 401;
+	FORBIDDEN 		= 403;
+	NOTFOUND 		= 404;
+	ERROR          	= 500;
+}
+
+message resp {
+	error_codes code = 1;
+	string msg = 2;
+}
+
+
+//protoc -I . --go_out=plugins=grpc:. ./tv_service.proto
