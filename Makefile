@@ -1,24 +1,21 @@
 # Go parameters
 GOCMD=GO111MODULE=on go
 GOBUILD=$(GOCMD) build
-GOTEST=$(GOCMD) test
 #latest
-all: test build
+
 update:
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOCMD) build -o server_simple cmd/main.go
 	mkdir cmd/linux
 	mv ./server_simple cmd/linux
 	scp cmd/linux/server_simple root@140.143.188.219:/www/bin/server_simple
 	rm -rf cmd/linux
-test:
-	$(GOTEST) -v ./...
-
-clean:
-	rm -rf target/
 
 download:
 	export GOPROXY=https://goproxy.io
 	$(GOCMD) mod download
+
+build:
+	$(GOBUILD) cmd/main.go
 
 run:
 	cd internal/models/proto && protoc --go_out=../protoCompiles ./blogChatRecord.proto
@@ -42,11 +39,3 @@ run:
 
 	export GOPROXY=http://goproxy.io
 	$(GOCMD) run cmd/main.go
-
-build:
-    $(GOBUILD) cmd/main.go
-
-stop:
-	pkill -f target/logic
-	pkill -f target/job
-	pkill -f target/comet
