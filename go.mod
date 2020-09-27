@@ -36,4 +36,5 @@ replace (
 	golang.org/x/tools => github.com/golang/tools v0.0.0-20200425043458-8463f397d07c
 	golang.org/x/xerrors => github.com/golang/xerrors v0.0.0-20191204190536-9bdfabe68543
     google.golang.org/appengine => github.com/golang/appengine latest
+    golang.org/x/text => github.com/golang/text latest
 )
