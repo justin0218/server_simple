@@ -43,6 +43,9 @@ run:
 	export GOPROXY=http://goproxy.io
 	$(GOCMD) run cmd/main.go
 
+build:
+    $(GOBUILD) cmd/main.go
+
 stop:
 	pkill -f target/logic
 	pkill -f target/job
