@@ -20,7 +20,10 @@ func Init() *gin.Engine {
 		Credentials:     true,
 		ValidateHeaders: false,
 	}))
-
+	r.GET("health", func(context *gin.Context) {
+		context.JSON(200, map[string]string{"msg":"ok"})
+		return
+	})
 	apiV1Client := r.Group("v1/client") //.Use(middleware.NewMiddleware().VerifyToken())
 	{
 		apiV1Client.GET("/blog/list", client.BlogController.GetList)

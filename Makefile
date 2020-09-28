@@ -3,13 +3,6 @@ GOCMD=GO111MODULE=on go
 GOBUILD=$(GOCMD) build
 #latest
 
-update:
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOCMD) build -o server_simple cmd/main.go
-	mkdir cmd/linux
-	mv ./server_simple cmd/linux
-	scp cmd/linux/server_simple root@140.143.188.219:/www/bin/server_simple
-	rm -rf cmd/linux
-
 download:
 	export GOPROXY=https://goproxy.io
 	$(GOCMD) mod download
