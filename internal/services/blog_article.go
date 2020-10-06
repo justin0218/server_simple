@@ -52,6 +52,7 @@ func (this *blog) GetBlogDetail(c *gin.Context, in protoCompiles.BlogArticle) (p
 		return res, err
 	}
 	res.PrevArticle = &prevBlog
+	res.PrevArticle.View += 1
 	if res.CurrentArticle.Id != 0 {
 		_ = this.UpdateBlogView(in)
 	}
