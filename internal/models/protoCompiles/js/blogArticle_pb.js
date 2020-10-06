@@ -97,8 +97,8 @@ proto.blog_article.toObject = function(includeInstance, msg) {
     preface: jspb.Message.getFieldWithDefault(msg, 7, ""),
     htmlTxtUrl: jspb.Message.getFieldWithDefault(msg, 8, ""),
     name: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    createTime: jspb.Message.getFieldWithDefault(msg, 10, ""),
-    updateTime: jspb.Message.getFieldWithDefault(msg, 11, "")
+    createdAt: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    updatedAt: jspb.Message.getFieldWithDefault(msg, 11, "")
   };
 
   if (includeInstance) {
@@ -173,11 +173,11 @@ proto.blog_article.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 10:
       var value = /** @type {string} */ (reader.readString());
-      msg.setCreateTime(value);
+      msg.setCreatedAt(value);
       break;
     case 11:
       var value = /** @type {string} */ (reader.readString());
-      msg.setUpdateTime(value);
+      msg.setUpdatedAt(value);
       break;
     default:
       reader.skipField();
@@ -271,14 +271,14 @@ proto.blog_article.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCreateTime();
+  f = message.getCreatedAt();
   if (f.length > 0) {
     writer.writeString(
       10,
       f
     );
   }
-  f = message.getUpdateTime();
+  f = message.getUpdatedAt();
   if (f.length > 0) {
     writer.writeString(
       11,
@@ -451,10 +451,10 @@ proto.blog_article.prototype.setName = function(value) {
 
 
 /**
- * optional string create_time = 10;
+ * optional string created_at = 10;
  * @return {string}
  */
-proto.blog_article.prototype.getCreateTime = function() {
+proto.blog_article.prototype.getCreatedAt = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
@@ -463,16 +463,16 @@ proto.blog_article.prototype.getCreateTime = function() {
  * @param {string} value
  * @return {!proto.blog_article} returns this
  */
-proto.blog_article.prototype.setCreateTime = function(value) {
+proto.blog_article.prototype.setCreatedAt = function(value) {
   return jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
 /**
- * optional string update_time = 11;
+ * optional string updated_at = 11;
  * @return {string}
  */
-proto.blog_article.prototype.getUpdateTime = function() {
+proto.blog_article.prototype.getUpdatedAt = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
 };
 
@@ -481,7 +481,7 @@ proto.blog_article.prototype.getUpdateTime = function() {
  * @param {string} value
  * @return {!proto.blog_article} returns this
  */
-proto.blog_article.prototype.setUpdateTime = function(value) {
+proto.blog_article.prototype.setUpdatedAt = function(value) {
   return jspb.Message.setProto3StringField(this, 11, value);
 };
 

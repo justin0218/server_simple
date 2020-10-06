@@ -12,8 +12,8 @@ message blog_article {
 	string preface = 7;
 	string html_txt_url = 8;
 	string	name = 9;
-	string	create_time = 10;
-	string	update_time = 11;
+	string	created_at = 10;
+	string	updated_at = 11;
 }
 
 message blog_room {
