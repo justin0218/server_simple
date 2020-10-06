@@ -5,7 +5,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"server_simple/internal/models"
 	"server_simple/internal/models/protoCompiles"
-	"server_simple/thirdParty"
 	"sync"
 )
 
@@ -54,20 +53,7 @@ func (this *blog) GetBlogDetail(c *gin.Context, in protoCompiles.BlogArticle) (p
 	}
 	res.PrevArticle = &prevBlog
 	if res.CurrentArticle.Id != 0 {
-		go func(s *gin.Context, blogId int32) {
-			ipInfo := thirdParty.TaoBao.GetIpDetail(s.ClientIP())
-			intoReq := protoCompiles.BlogView{}
-			intoReq.Ip = s.ClientIP()
-			intoReq.Country = ipInfo.Data.Country
-			intoReq.Region = ipInfo.Data.Region
-			intoReq.City = ipInfo.Data.City
-			intoReq.Isp = ipInfo.Data.Isp
-			intoReq.BlogId = blogId
-			blogView, _ := models.BlogView.CreateBlogView(intoReq)
-			if blogView.Id != 0 {
-				_ = this.UpdateBlogView(in)
-			}
-		}(c, in.Id)
+		_ = this.UpdateBlogView(in)
 	}
 	return res, nil
 }
